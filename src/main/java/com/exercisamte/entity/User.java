@@ -1,17 +1,17 @@
 package com.exercisamte.entity;
 
 import lombok.*;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data
-@Setter
 @Getter
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user")
 public class User {
 
@@ -27,9 +27,4 @@ public class User {
     private Date created_at;
     private Date updated_at;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<UserMetric> userMetrics;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<RoutineDetail> routineDetails;
 }

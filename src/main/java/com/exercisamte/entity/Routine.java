@@ -24,9 +24,5 @@ public class Routine {
     private Date created_at;
     private Date updated_at;
 
-    @OneToMany(mappedBy = "routine", cascade = CascadeType.ALL)
-    private List<RoutineDetail> routineDetails;
 
-    @OneToMany(mappedBy = "routine", cascade = CascadeType.ALL)
-    private List<ExerciseDetail> exerciseDetails;
 }

@@ -1,6 +1,5 @@
 package com.exercisamte.entity;
 
-import com.fasterxml.jackson.databind.DatabindException;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,9 +25,6 @@ public class Exercise {
     private Date created_at;
     private Date updated_at;
 
-    @OneToMany(mappedBy = "exercise")
-    private List<MuscleDetail> muscleDetails;
 
-    @OneToMany(mappedBy = "exercise")
-    private List<ExerciseDetail> exercises;
+
 }

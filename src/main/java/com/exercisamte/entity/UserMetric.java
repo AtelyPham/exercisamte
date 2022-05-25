@@ -3,6 +3,7 @@ package com.exercisamte.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
@@ -12,12 +13,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user_metric")
-public class UserMetric {
+public class UserMetric implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    private Long user_id;
+    private Long user_id;
     private Date measure_day;
     private int weight;
     private int height;
@@ -29,8 +30,7 @@ public class UserMetric {
     private Date created_at;
     private Date updated_at;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+
+
 
 }

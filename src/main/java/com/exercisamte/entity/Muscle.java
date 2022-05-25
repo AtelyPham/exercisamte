@@ -21,7 +21,5 @@ public class Muscle {
     private Date created_at;
     private Date updated_at;
 
-    @OneToMany(mappedBy = "muscle")
-    private List<MuscleDetail> muscleDetails;
 
 }
