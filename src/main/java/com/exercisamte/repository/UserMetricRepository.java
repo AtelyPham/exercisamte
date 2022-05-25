@@ -11,5 +11,6 @@ import java.util.List;
 public interface UserMetricRepository extends JpaRepository<UserMetric, Long> {
 
     @Query("SELECT p from UserMetric p WHERE p.user_id = ?1")
-    List<UserMetric> findByUserId(Long id);
+    List<UserMetric> findByUserId(Long userId);
+
 }
