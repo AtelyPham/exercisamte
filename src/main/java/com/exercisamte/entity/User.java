@@ -1,10 +1,11 @@
 package com.exercisamte.entity;
 
 import lombok.*;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.*;
+
+/* TODO: `createdAt` and `updatedAt` need default value */
 
 @Entity
 @Data
@@ -18,13 +19,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String gender;
     private Date birthday;
-    private int day_per_week;
+    private int dayPerWeek;
     private int level;
-    private Date created_at;
-    private Date updated_at;
+    private Date createdAt;
+    private Date updatedAt;
 
 }

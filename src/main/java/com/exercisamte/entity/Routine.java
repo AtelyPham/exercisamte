@@ -4,7 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+
+/* TODO: `createdAt` and `updatedAt` need default value */
 
 @Entity
 @Data
@@ -21,8 +22,8 @@ public class Routine {
     private String name;
     private String description;
     private int level;
-    private Date created_at;
-    private Date updated_at;
+    private Date createdAt;
+    private Date updatedAt;
 
 
 }

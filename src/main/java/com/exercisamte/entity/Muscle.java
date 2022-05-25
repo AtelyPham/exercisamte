@@ -4,7 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+
+/* TODO: `createdAt` and `updatedAt` need default value */
 
 @Entity
 @Data
@@ -18,8 +19,6 @@ public class Muscle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Date created_at;
-    private Date updated_at;
-
-
+    private Date createdAt;
+    private Date updatedAt;
 }

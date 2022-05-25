@@ -1,8 +1,7 @@
 package com.exercisamte.controller;
 
 import com.exercisamte.dto.responseDto.UserMetricDto;
-import com.exercisamte.entity.UserMetric;
-import com.exercisamte.service.UserMetricService;
+import com.exercisamte.repository.service.UserMetricService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -20,7 +19,7 @@ public class UserMetricController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getListByUserId(@PathVariable Long id){
+    public ResponseEntity<List<UserMetricDto>> getListByUserId(@PathVariable Long id){
         List<UserMetricDto> metrics = userMetricService.getListByUserId(id);
         return ResponseEntity.ok(metrics);
 

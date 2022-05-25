@@ -13,11 +13,11 @@ public class Mapper {
     public static UserDto toUserDto(User user) {
         UserDto userResponseDto = new UserDto();
         userResponseDto.setId(user.getId());
-        userResponseDto.setFirstName(user.getFirst_name());
-        userResponseDto.setLastName(user.getLast_name());
+        userResponseDto.setFirstName(user.getFirstName());
+        userResponseDto.setLastName(user.getLastName());
         userResponseDto.setBirthday(user.getBirthday());
         userResponseDto.setGender(user.getGender());
-        userResponseDto.setDays_per_week(user.getDay_per_week());
+        userResponseDto.setDays_per_week(user.getDayPerWeek());
         userResponseDto.setLevel(user.getLevel());
 
         return userResponseDto;
@@ -41,7 +41,7 @@ public class Mapper {
         userMetricDto.setCore(userMetric.getCore());
         userMetricDto.setButt(userMetric.getButt());
         userMetricDto.setLegs(userMetric.getLegs());
-        userMetricDto.setMeasureDay(userMetric.getMeasure_day());
+        userMetricDto.setMeasureDay(userMetric.getMeasureDay());
 
         return userMetricDto;
     }
