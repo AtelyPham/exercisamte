@@ -7,7 +7,7 @@ import com.exercisamte.entity.UserMetric;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 public class Mapper {
     public static UserDto toUserDto(User user) {

@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user-metric")
+@RequestMapping("/user-metrics")
 public class UserMetricController {
     @Autowired
     private UserMetricService userMetricService;
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getListByUserId(@PathVariable Long id){
