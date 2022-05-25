@@ -4,7 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+
+/* TODO: `createdAt` and `updatedAt` need default value */
 
 @Entity
 @Data
@@ -18,13 +19,13 @@ public class RoutineDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id;
-    private Long routine_id;
+    private Long userId;
+    private Long routineId;
     private int day;
-    private boolean is_created_by_user;
-    private int time_taken;
-    private Date created_at;
-    private Date updated_at;
+    private boolean isCreatedByUser;
+    private int timeTaken;
+    private Date createdAt;
+    private Date updatedAt;
 
 
 }

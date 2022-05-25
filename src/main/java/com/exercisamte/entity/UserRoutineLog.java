@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
+/* TODO: `createdAt` and `updatedAt` need default value */
 
 @Entity
 @Data
@@ -18,13 +19,13 @@ public class UserRoutineLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long routine_detail_id;
-    private Long exercise_detail_id;
-    private int number_of_set_executed;
-    private int number_of_rep_executed;
-    private int time_taken;
-    private Date created_at;
-    private Date updated_at;
+    private Long routineDetailId;
+    private Long exerciseDetailId;
+    private int numberOfSetExecuted;
+    private int numberOfRepExecuted;
+    private int timeTaken;
+    private Date createdAt;
+    private Date updatedAt;
 
 
 

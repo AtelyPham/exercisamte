@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/* TODO: `createdAt` and `updatedAt` need default value */
+
 @Entity
 @Data
 @Setter
@@ -18,8 +20,8 @@ public class UserMetric implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id;
-    private Date measure_day;
+    private Long userId;
+    private Date measureDay;
     private int weight;
     private int height;
     private int chest;
@@ -27,8 +29,8 @@ public class UserMetric implements Serializable {
     private int core;
     private int butt;
     private int legs;
-    private Date created_at;
-    private Date updated_at;
+    private Date createdAt;
+    private Date updatedAt;
 
 
 
