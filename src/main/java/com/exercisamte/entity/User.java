@@ -19,13 +19,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String email;
     private String firstName;
     private String lastName;
     private String gender;
     private Date birthday;
     private int dayPerWeek;
     private int level;
+
     private Date createdAt;
     private Date updatedAt;
+
+    //tạo 2 field
+    private String loginToken;
+    private Date loginTokenExpiresAt;
 
 }

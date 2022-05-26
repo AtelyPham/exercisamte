@@ -2,10 +2,7 @@ package com.exercisamte.controller;
 
 import com.exercisamte.dto.responseDto.UserDto;
 import com.exercisamte.entity.*;
-import com.exercisamte.repository.ExerciseDetailRepository;
-import com.exercisamte.repository.ExerciseRepository;
-import com.exercisamte.repository.RoutineDetailRepository;
-import com.exercisamte.repository.UserMetricRepository;
+import com.exercisamte.repository.*;
 import com.exercisamte.repository.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -23,6 +21,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepo;
     @Autowired
     private UserMetricRepository userMetricRepo;
 
@@ -36,9 +36,11 @@ public class UserController {
     private ExerciseRepository exerciseRepo;
 
     @GetMapping("/")
-    public ResponseEntity<?> getListUser() {
-        List<UserDto> user = userService.getListUser();
-        return ResponseEntity.ok(user);
+    public ResponseEntity<ResponseObject> getListUser() {
+        List<User> users = userRepo.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject("ok", "Get list user successfully", users)
+        );
     }
 
     @GetMapping("/{id}/metrics")
@@ -64,12 +66,17 @@ public class UserController {
         int weekDate = this.getWeekDate();
 
         List<RoutineDetail> routineDetails = this.routineDetailRepo.findByUserIdAndDay(id, weekDate);
-        /* TODO: Check whether `routineDetails` is empty */
+
+        if(routineDetails.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                    new ResponseObject("fail", "Not found user with id=" + id, null)
+            );
+        }
 
         Long routineId = routineDetails.get(0).getRoutineId();
         List<ExerciseDetail> exerciseDetails = this.exerciseDetailRepo.findByRoutineId(routineId);
 
-        List<Long> exerciseDetailIds = exerciseDetails.stream().map(exerciseDetail -> exerciseDetail.getExerciseId()).toList();
+        List<Long> exerciseDetailIds = exerciseDetails.stream().map(exerciseDetail -> exerciseDetail.getExerciseId()).collect(Collectors.toList());
         List<Exercise> exercises = this.exerciseRepo.findAllById(exerciseDetailIds);
 
         return ResponseEntity.status(HttpStatus.OK).body(
