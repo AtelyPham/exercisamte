@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -69,7 +70,7 @@ public class UserController {
         Long routineId = routineDetails.get(0).getRoutineId();
         List<ExerciseDetail> exerciseDetails = this.exerciseDetailRepo.findByRoutineId(routineId);
 
-        List<Long> exerciseDetailIds = exerciseDetails.stream().map(exerciseDetail -> exerciseDetail.getExerciseId()).toList();
+        List<Long> exerciseDetailIds = exerciseDetails.stream().map(exerciseDetail -> exerciseDetail.getExerciseId()).collect(Collectors.toList());
         List<Exercise> exercises = this.exerciseRepo.findAllById(exerciseDetailIds);
 
         return ResponseEntity.status(HttpStatus.OK).body(
