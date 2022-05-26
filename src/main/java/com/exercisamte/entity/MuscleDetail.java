@@ -5,6 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
+/* TODO: `createdAt` and `updatedAt` need default value */
+
 @Entity
 @Data
 @Setter
@@ -17,11 +19,11 @@ public class MuscleDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long muscle_id;
-    private Long exercise_id;
-    private String muscle_type;
-    private Date created_at;
-    private Date update_at;
+    private Long muscleId;
+    private Long exerciseId;
+    private String muscleType;
+    private Date createdAt;
+    private Date updateAt;
 
 
 

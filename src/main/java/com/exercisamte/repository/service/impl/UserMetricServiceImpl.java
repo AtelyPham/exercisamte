@@ -1,9 +1,9 @@
-package com.exercisamte.service.impl;
+package com.exercisamte.repository.service.impl;
 
 import com.exercisamte.dto.Mapper;
 import com.exercisamte.dto.responseDto.UserMetricDto;
 import com.exercisamte.repository.UserMetricRepository;
-import com.exercisamte.service.UserMetricService;
+import com.exercisamte.repository.service.UserMetricService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

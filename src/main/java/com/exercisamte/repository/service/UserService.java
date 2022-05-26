@@ -1,4 +1,4 @@
-package com.exercisamte.service;
+package com.exercisamte.repository.service;
 
 import com.exercisamte.dto.responseDto.UserDto;
 import org.springframework.stereotype.Service;
